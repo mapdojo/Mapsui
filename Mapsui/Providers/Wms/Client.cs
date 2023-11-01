@@ -539,7 +539,7 @@ public class Client
                 {
                     Type = xnlHttp.ChildNodes[i]?.Name,
                     OnlineResource = xnlHttp.ChildNodes[i]?.SelectSingleNode("sm:OnlineResource", _nsmgr)?
-                        .Attributes?["xlink:href"]?.InnerText
+                        .Attributes?["xlink:href"]?.InnerText.Replace("http://", "https://")
                 };
                 GetMapRequests[i] = wor;
             }
