@@ -707,6 +707,7 @@ public class WFSProvider : IProvider, IDisposable
         else if (_featureTypeInfo.ServiceUri.EndsWith("?", StringComparison.Ordinal))
             _featureTypeInfo.ServiceUri =
                 _featureTypeInfo.ServiceUri.Remove(_featureTypeInfo.ServiceUri.Length - 1);
+        _featureTypeInfo.ServiceUri?.Replace("http://", "https://");
 
         /* URI for DescribeFeatureType request */
         var describeFeatureTypeUri = _featureTypeInfoQueryManager.GetValueFromNode
@@ -716,6 +717,7 @@ public class WFSProvider : IProvider, IDisposable
         else if (describeFeatureTypeUri.EndsWith("?", StringComparison.Ordinal))
             describeFeatureTypeUri =
                 describeFeatureTypeUri.Remove(describeFeatureTypeUri.Length - 1);
+        describeFeatureTypeUri?.Replace("http://", "https://");
 
         /* Spatial reference ID */
         var srid = _featureTypeInfoQueryManager.GetValueFromNode
@@ -1029,7 +1031,7 @@ public class WFSProvider : IProvider, IDisposable
                                                                       string targetUrl)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.GetCapabilitiesRequest());
+            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.GetCapabilitiesRequest()).Replace("http://", "https://");
             return httpClientUtil;
         }
 
@@ -1042,7 +1044,7 @@ public class WFSProvider : IProvider, IDisposable
                                                                           string featureTypeName)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.DescribeFeatureTypeRequest(featureTypeName));
+            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.DescribeFeatureTypeRequest(featureTypeName)).Replace("http://", "https://");
             return httpClientUtil;
         }
 
@@ -1055,13 +1057,13 @@ public class WFSProvider : IProvider, IDisposable
             IFilter? filter, bool get)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = featureTypeInfo.ServiceUri;
+            httpClientUtil.Url = featureTypeInfo.ServiceUri?.Replace("http://", "https://");
 
             if (get)
             {
                 /* HTTP-GET */
                 httpClientUtil.Url = httpClientUtil.Url?.AppendQuery(_wfsTextResources.GetFeatureGETRequest(
-                    featureTypeInfo, labelProperties, boundingBox, filter));
+                    featureTypeInfo, labelProperties, boundingBox, filter)).Replace("http://", "https://");
             }
             else
             {
