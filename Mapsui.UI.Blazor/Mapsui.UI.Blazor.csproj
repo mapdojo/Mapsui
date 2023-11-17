@@ -21,6 +21,10 @@
     <PackageReference Include="DotNext.Threading" />
     <PackageReference Include="HarfBuzzSharp.NativeAssets.WebAssembly" />
     <PackageReference Include="SkiaSharp.NativeAssets.WebAssembly" />
+    <PackageReference Update="Microsoft.Net.Compilers.Toolset" VersionOverride="4.8.0-3.final">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <!--target to remove System.Memory-->
