@@ -1,10 +1,12 @@
-# **Mapsui** documentation.
+# **Mapsui v4.1** documentation
 
 This is the documentation of the Mapsui open source map component.
 - [General documentation](https://mapsui.com/documentation/home.html)
 - [API documentation](https://mapsui.com/api/index.html)
 - [Mapsui on GitHub](https://github.com/mapsui/mapsui)
 - [Online samples in Blazor](https://mapsui.com/samples/)
+
+For documentation for the upcoming **Mapsui v5** look [here](https://mapsui.com/v5).
 
 ## Projects that use Mapsui
 
@@ -16,8 +18,6 @@ This is the documentation of the Mapsui open source map component.
 
 [![Squadra](images/squadra.png)](https://bertt.github.io/squadra/)
 
-@mapsui-users Please send info on other apps using Mapsui to add them here
-
 ## Support
 
-If you are looking for paid support in the form of contract work or consoluting please mail [info.mapsui@gmail.com](mailto:info.mapsui@gmail.com).
+If you are looking for paid support in the form of contract work or consultancy please mail [info.mapsui@gmail.com](mailto:info.mapsui@gmail.com).
