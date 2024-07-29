@@ -1082,7 +1082,7 @@ public class WFSProvider : IProvider, IDisposable
                                                                       string targetUrl)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.GetCapabilitiesRequest());
+            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.GetCapabilitiesRequest()).Replace("http://", "https://");
             return httpClientUtil;
         }
 
@@ -1095,7 +1095,7 @@ public class WFSProvider : IProvider, IDisposable
                                                                           string featureTypeName)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.DescribeFeatureTypeRequest(featureTypeName));
+            httpClientUtil.Url = targetUrl.AppendQuery(_wfsTextResources.DescribeFeatureTypeRequest(featureTypeName)).Replace("http://", "https://");
             return httpClientUtil;
         }
 
@@ -1108,7 +1108,7 @@ public class WFSProvider : IProvider, IDisposable
             IFilter? filter, bool get)
         {
             httpClientUtil.Reset();
-            httpClientUtil.Url = featureTypeInfo.ServiceUri;
+            httpClientUtil.Url = featureTypeInfo.ServiceUri?.Replace("http://", "https://");
 
             if (get)
             {

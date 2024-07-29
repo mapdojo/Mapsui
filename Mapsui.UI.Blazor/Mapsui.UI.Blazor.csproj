@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
     <Nullable>enable</Nullable>
 	  <ImplicitUsings>enable</ImplicitUsings>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
@@ -10,6 +9,7 @@
     <Description>Blazor map components based on the Mapsui library</Description>
     <PackageTags>$(PackageTags) blazor wasm razor</PackageTags>
 		<IsPackable>true</IsPackable>
+		<TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
 	<ItemGroup>
